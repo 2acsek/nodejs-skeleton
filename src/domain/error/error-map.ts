@@ -1,5 +1,6 @@
 import { DetailedError, isDetailedError, MappedError } from '../../framework/error/error';
 import { ResourceNotFoundError } from '../../framework/error/resource-not-found-error';
+import { ValidationError } from '../../framework/error/validation-error';
 
 type ErrorHandler = (errorCode: string, details?: Record<string, unknown>) => MappedError;
 
@@ -16,6 +17,14 @@ const errorMap: ErrorMap = [
       ...(details ? { details } : {}),
     }),
     errors: [ResourceNotFoundError],
+  },
+  {
+    errorHandler: (errorCode: string, details?: Record<string, unknown>) => ({
+      errorCode,
+      status: 400,
+      ...(details ? { details } : {}),
+    }),
+    errors: [ValidationError],
   },
 ];
 
