@@ -1,7 +1,6 @@
-import { OpenAPIV3 } from 'openapi-types';
 import { Config } from './config';
 import { errorMapper } from './domain/error/error-map';
-import { statusEndpointFactory } from './endpoint/status/get-status.endpoint';
+import { statusEndpointFactory } from './endpoint/status/status.endpoint';
 import { Endpoint } from './framework/endpoint/endpoint';
 import { errorHandlerFactory } from './framework/error/error-handler';
 import { swaggerFastifyFactory } from './framework/fastify/swagger-fastify.factory';
@@ -26,22 +25,6 @@ export const createApp = async ({
   const endpoints = setupEndpoints({
     version,
   });
-
-  const security: OpenAPIV3.SecurityRequirementObject[] = [
-    {
-      bearerToken: [],
-    },
-  ];
-
-  const components: OpenAPIV3.ComponentsObject = {
-    schemas: {},
-    securitySchemes: {
-      bearerToken: {
-        type: 'http',
-        scheme: 'bearer',
-      },
-    },
-  };
 
   const swaggerOptions = swaggerFastifyFactory({
     tags: [],

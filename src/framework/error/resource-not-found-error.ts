@@ -2,12 +2,7 @@ import { RESOURCE_NOT_FOUND } from '../../domain/error/error.constants';
 import { DetailedError } from './error';
 
 export enum EntityName {
-  TENANT = 'TENANT',
-  OAUTH_CLIENT = 'OAUTH_CLIENT',
-  SAML_CLIENT = 'SAML_CLIENT',
-  USER = 'USER',
-  COMPANY = 'COMPANY',
-  IMPORT = 'IMPORT',
+  UNKNOWN = 'UNKNOWN',
 }
 
 export class ResourceNotFoundError extends DetailedError {

@@ -1,7 +1,7 @@
 import fastify from 'fastify';
 import fastifyCors from '@fastify/cors';
 import fastifyFormBody from '@fastify/formbody';
-import fastifySwagger, { FastifySwaggerOptions, SwaggerOptions } from '@fastify/swagger';
+import fastifySwagger, { SwaggerOptions } from '@fastify/swagger';
 import { Endpoint, EndpointMethods } from '../endpoint/endpoint';
 import { Logger } from '../logger/logger';
 import Ajv from 'ajv';
