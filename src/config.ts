@@ -10,8 +10,14 @@ const configObject = convict({
   host: {
     doc: 'The application host',
     format: String,
-    default: '127.0.0.1',
+    default: '0.0.0.0',
     env: 'HOST',
+  },
+  version: {
+    doc: 'The application version',
+    format: String,
+    default: '0.0.0',
+    env: 'VERSION',
   },
   applicationUrl: {
     doc: 'URL of the application',
